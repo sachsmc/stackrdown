@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+$if(highlightjs)$
+<link rel="stylesheet"
+      href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
+      $if(html5)$$else$type="text/css" $endif$/>
+<script src="$highlightjs$/highlight.js"></script>
+$endif$
+
+$if(highlighting-css)$
+<style type="text/css">
+$highlighting-css$
+</style>
+$endif$
+
+$if(css)$
+$for(css)$
+    <link rel="stylesheet" href="$css$"/>
+$endfor$
+$endif$
+
+$for(header-includes)$
+    $header-includes$
+$endfor$
+
+<style type="text/css">
+  
+section {
+  background: $back$;
+  color: $front$;
+  padding: 2em;
+  padding-left: 5em;
+}
+
+.grey {
+  color: #777;
+}
+
+</style>
+
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+  
+$if(title)$
+<section>
+    <h1 class="title">$title$</h1>
+$if(subtitle)$
+  <h1 class="subtitle">$subtitle$</h1>
+$endif$
+$for(author)$
+    <h2 class="author">$author$</h2>
+$endfor$
+    <h3 class="date">$date$</h3>
+</section>
+$endif$
+$if(toc)$
+<section id="$idprefix$TOC">
+$toc$
+</section>
+$endif$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+  <script src="$stack-url$/d3.v3.min.js"></script>
+  <script src="$stack-url$/stack.v1.min.js"></script>
+
+<script>
+
+var mystack = stack();
+
+var follow = d3.select("#follow");
+
+function refollow() {
+  follow.style("top", (1 + (1 - mystack.scrollRatio()) / 2 - d3.event.offset) * 100 + "%");
+}
+</script>
+
+$if(mathjax-url)$
+  <!-- dynamically load mathjax for compatibility with --self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "$mathjax-url$";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+$endif$
+
+  </body>
+</html>

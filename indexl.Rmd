@@ -1,0 +1,44 @@
+---
+title: "Stack.js presentations"
+author: "Michael Sachs"
+date: "July 10, 2014"
+output: 
+    stackrdown::stackjs_presentation:
+        theme: light
+  
+---
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE, eval = 2}
+par(col = "white", col.axis = "white", col.lab = "white", col.main = "white", col.sub = "white")
+plot(cars)
+```
+
+## Install/View on github
+
+```{r eval = FALSE}
+devtools::install_github("stackrdown", "sachsmc")
+```
+
+<http://github.com/sachsmc/stackrdown>
+
+<a href="index.html"> View dark version </a>
